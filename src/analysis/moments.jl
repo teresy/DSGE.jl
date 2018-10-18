@@ -143,7 +143,7 @@ function prior_table(m::AbstractModel; subset_string::String = "",
     for group_desc in keys(groupings)
         params = groupings[group_desc]
         n_params = length(params)
-        n_rows = convert(Int, ceil(n_params/2))
+        n_rows = convert(Int, cld(n_params,2))
 
         # Write grouping description if not empty
         if !isempty(group_desc)
